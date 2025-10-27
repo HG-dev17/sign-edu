@@ -15,26 +15,37 @@
         gradeSelect.addEventListener('change', function () {
             if (this.value) {
                 versionSelect.disabled = false;
-                versionSelect.innerHTML = '<option value="">-- 请选择教材版本 --</option>';
-                versionSelect.innerHTML += '<option value="renjiao">人教版</option>';
-                versionSelect.innerHTML += '<option value="beishida">北师大版</option>';
-                versionSelect.innerHTML += '<option value="sujiao">苏教版</option>';
+                versionSelect.innerHTML = '<option value="">-- 请选择学科 --</option>';
+                versionSelect.innerHTML += '<option value="shenghuo">品德与生活</option>';
+                versionSelect.innerHTML += '<option value="shehui">品德与社会</option>';
+                versionSelect.innerHTML += '<option value="sixiang">思想品德</option>';
+                versionSelect.innerHTML += '<option value="lishi">历史</option>';
+                versionSelect.innerHTML += '<option value="dili">地理</option>';
+                versionSelect.innerHTML += '<option value="shengwu">生物学</option>';
+                versionSelect.innerHTML += '<option value="wuli">物理</option>';
+                versionSelect.innerHTML += '<option value="huaxue">化学</option>';
+                versionSelect.innerHTML += '<option value="yuwen">语文</option>';
+                versionSelect.innerHTML += '<option value="shuxue">数学</option>';
+                versionSelect.innerHTML += '<option value="goutong">沟通与交往</option>';
+                versionSelect.innerHTML += '<option value="tiyu">体育与健康</option>';
+                versionSelect.innerHTML += '<option value="lvdong">律动</option>';
+                versionSelect.innerHTML += '<option value="meishu">美术</option>';
 
                 lessonSelect.disabled = true;
-                lessonSelect.innerHTML = '<option value="">-- 请先选择教材版本 --</option>';
+                lessonSelect.innerHTML = '<option value="">-- 请先选择学科 --</option>';
                 videoPlaceholder.style.display = 'flex';
                 videoPlayer.style.display = 'none';
             } else {
                 versionSelect.disabled = true;
                 versionSelect.innerHTML = '<option value="">-- 请先选择年级 --</option>';
                 lessonSelect.disabled = true;
-                lessonSelect.innerHTML = '<option value="">-- 请先选择教材版本 --</option>';
+                lessonSelect.innerHTML = '<option value="">-- 请先选择学科 --</option>';
                 videoPlaceholder.style.display = 'flex';
                 videoPlayer.style.display = 'none';
             }
         });
 
-        // 教材版本选择变化时
+        // 学科选择变化时
         versionSelect.addEventListener('change', function () {
             if (this.value) {
                 lessonSelect.disabled = false;
@@ -44,17 +55,13 @@
                 const version = this.value;
 
                 let lessons = [];
-                if (grade === '1' && version === 'renjiao') {
-                    lessons = ['《上学歌》', '《小小的船》', '《江南》', '《四季》', '《画》', '《大小多少》'];
-                } else if (grade === '1' && version === 'beishida') {
+                if (grade === '2' && version === 'yuwen') {
+                    lessons = ['《秋天》', '《小小的船》', '《江南》', '《四季》', '《画》', '《大小多少》'];
+                } 
+                else if (grade === '1' && version === 'beishida') {
                     lessons = ['《上学了》', '《数字歌》', '《山村》', '《我的家》', '《小小的船》', '《太阳》'];
-                } else if (grade === '2' && version === 'renjiao') {
-                    lessons = ['《小蝌蚪找妈妈》', '《我是什么》', '《植物妈妈有办法》', '《场景歌》', '《树之歌》', '《拍手歌》'];
-                } else if (grade === '2' && version === 'beishida') {
-                    lessons = ['《秋天》', '《植物妈妈有办法》', '《古诗二首》', '《妈妈睡了》', '《寒号鸟》', '《坐井观天》'];
-                } else if (grade === '3' && version === 'renjiao') {
-                    lessons = ['《大青树下的小学》', '《花的学校》', '《不懂就要问》', '《古诗三首》', '《铺满金色巴掌的水泥道》', '《秋天的雨》'];
-                } else {
+                } 
+                else {
                     lessons = ['课文一', '课文二', '课文三', '课文四', '课文五', '课文六'];
                 }
 
@@ -69,7 +76,7 @@
                 videoPlayer.style.display = 'none';
             } else {
                 lessonSelect.disabled = true;
-                lessonSelect.innerHTML = '<option value="">-- 请先选择教材版本 --</option>';
+                lessonSelect.innerHTML = '<option value="">-- 请先选择学科 --</option>';
                 videoPlaceholder.style.display = 'flex';
                 videoPlayer.style.display = 'none';
             }
